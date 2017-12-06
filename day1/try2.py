@@ -13,28 +13,25 @@ f = open(args.file)
 inputStr = f.readline()
 inputStr = inputStr.strip('\n')
 print (inputStr+'\n')
-inputList = []
 inputLen = len(inputStr)
-
+listDiv = inputLen/2
 result = 0
-for char in inputStr:
-    #print (char)
-    inputList.append(int(char))
+inputList = list(inputStr)
 
 print('.:LIST:.', '\n', inputList, '\n')
 
 for i in range(len(inputStr)-1):
-    if inputList[i] == inputList[i+1]:
-        result = result + inputList[i]
-        #print('split result: ' + str(result))
+    keck = int(i + listDiv) % inputLen
+    if int(inputList[i]) == int(inputList[keck]):
+        result = result + int(inputList[i])
     else:
         result = result
 
 
-if inputList[0] == inputList[-1]:
-    result = result + inputList[-1]
-else:
-    print('not equle')
-    result = result
+#if int(inputList[0]) == int(inputList[-1]):
+#    result = result + int(inputList[-1])
+#else:
+#    print('not equle')
+#    result = result
 
 print('Sum: ' + str(result))
