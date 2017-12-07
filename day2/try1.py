@@ -6,10 +6,12 @@ args = parser.parse_args()
 with open(args.file) as inFile:
     inData = inFile.read().strip().split('\n')
 lenData = len(inData)
-#print(inData[-1])
-listing = list()
-
+#print(inData)
+count = 0
 for i in inData:
-    for n in i:
-        listing.append(n)
-    print(listing)
+    newi = ''.join(i.split())
+    sortData = sorted(newi)
+    #print(sortData)
+    print(int(sortData[0]))
+    count = count + (int(sortData[-1]) - int(sortData[0]))
+print(count)
