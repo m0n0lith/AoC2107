@@ -13,11 +13,19 @@ for m in inData:
     print('M: ', m)
     splitData = m.split('\t')
     print('SplitData: ',splitData)
+    # Make it INT
     for i in m:
         results = list(map(int, splitData))
-        #newi = int(splitData[0])
         sortData = sorted(results)
-    print('SortData: ', sortData)
-    count = count + (sortData[-1] - sortData[0])
+    print(sortData)
+    for n in range(0, len(sortData)):
+        for k in range(0,len(sortData)):
+            if n==k:
+                continue
+            if sortData[n] % sortData[k] == 0:
+                count += sortData[n]/sortData[k]
+        #print(sortData[n])
+        #print(sortData[n] % sortData[n]+1)
+        print('Yes! ',sortData[n],'/',sortData[k],' = ',sortData[n]/sortData[k])
     #print('sortdata-1:',sortData[-1],' minus ',sortData[0],' is ',(sortData[-1] - sortData[0]))
 print(count)
